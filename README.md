@@ -1,8 +1,6 @@
 # Marvel Heroes Backend
 
-<div style="text-align: center;">
-  <img src="https://www.vectorlogo.zone/logos/springio/springio-ar21.svg" alt="Spring Boot Logo" />
-</div>
+![Spring Boot Logo](https://www.vectorlogo.zone/logos/springio/springio-ar21.svg)
 
 Este é o backend do projeto Marvel Heroes, desenvolvido com Spring Boot e PostgreSQL. O projeto utiliza Docker para
 facilitar a configuração e execução do ambiente.
