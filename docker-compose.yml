@@ -1,0 +1,44 @@
+services:
+  db:
+    container_name: db
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_DB: marvel_db
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: codigo1234
+    ports:
+      - "5432:5432"
+    networks:
+      - springboot-network
+
+  redis:
+    container_name: redis
+    image: redis:latest
+    command: redis-server
+    ports:
+      - "6379:6379"
+    restart: always
+    networks:
+      - springboot-network
+
+  springboot-app:
+    container_name: springboot-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - LANG=pt_BR.UTF-8
+      - JAVA_HOME=/usr/java/jdk-21
+      - PATH=$JAVA_HOME/bin:$PATH
+    networks:
+      - springboot-network
+    depends_on:
+      - db
+      - redis
+
+networks:
+  springboot-network:
+    driver: bridge
