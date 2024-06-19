@@ -1,4 +1,3 @@
-# Use Oracle Linux 9 as the base image for building the JDK
 FROM oraclelinux:9 as builder
 
 # Install necessary tools
@@ -25,12 +24,16 @@ RUN set -eux; \
     tar --extract --file /tmp/jdk.tgz --directory "$JAVA_HOME" --strip-components 1; \
     rm /tmp/jdk.tgz
 
-# Use a fresh Oracle Linux 9 image for the final runtime image
+
 FROM oraclelinux:9
 
 # Default to UTF-8 file.encoding
 ENV LANG=pt_BR.UTF-8
+
+# Environment variables for the runtime image
 ENV JAVA_HOME=/usr/java/jdk-21
+
+# Add the Java Runtime to the PATH
 ENV PATH=$JAVA_HOME/bin:$PATH
 
 # Copy the uncompressed Java Runtime from the builder image
@@ -56,8 +59,12 @@ WORKDIR /app
 ARG JAR_FILE=build/libs/*.jar
 COPY ${JAR_FILE} app.jar
 
+# Copy and allow execution of the entrypoint script
+COPY .docker/scripts/entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
 # Expose the default port for Spring Boot
-EXPOSE 8080
+EXPOSE 8082
 
 # Run the Spring Boot application
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["/entrypoint.sh"]
