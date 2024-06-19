@@ -1,13 +1,8 @@
-= Spring Boot
-image:https://github.com/spring-projects/spring-boot/actions/workflows/build-and-deploy-snapshot.yml/badge.svg?branch=main["Build
-Status",
-link="https://github.com/spring-projects/spring-boot/actions/workflows/build-and-deploy-snapshot.yml?query=branch%3Amain"] image:https://badges.gitter.im/Join
-Chat.svg["Chat",link="https://gitter.im/spring-projects/spring-boot?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge"] image:https://img.shields.io/badge/Revved%20up%20by-Develocity-06A0CE?logo=Gradle&labelColor=02303A["Revved up by Develocity", link="https://ge.spring.io/scans?&search.rootProjectNames=Spring%20Boot%20Build&search.rootProjectNames=spring-boot-build"]
-
-:docs: https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference
-:github: https://github.com/spring-projects/spring-boot
-
 # Marvel Heroes Backend
+
+<div style="text-align: center;">
+  <img src="https://www.vectorlogo.zone/logos/springio/springio-ar21.svg" alt="Spring Boot Logo" />
+</div>
 
 Este é o backend do projeto Marvel Heroes, desenvolvido com Spring Boot e PostgreSQL. O projeto utiliza Docker para
 facilitar a configuração e execução do ambiente.
@@ -46,4 +41,4 @@ java -jar build/libs/marvel-heroes-backend-0.0.1-SNAPSHOT.jar --spring.profiles.
 
 ### License
 
-Project license [MIT license](https://opensource.org/licenses/MIT)
+Project license [Apache License 2.0](https://opensource.org/license/apache-2-0)
