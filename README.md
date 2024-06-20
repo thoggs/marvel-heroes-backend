@@ -23,8 +23,8 @@ docker-compose up -d
 
 ### Passo 2: Executar o projeto
 
-Agora, você pode executar o projeto Spring Boot. Abra o projeto no IntelliJ IDEA ou Eclipse e execute a
-classe `MarvelHeroesBackendApplication`.
+Agora, você pode executar o projeto Spring Boot. Abra o projeto no seu editor de código preferido e execute a
+classe `MarvelHeroesBackendApplication`:
 
 ```sh
 ./gradlew bootRun --args='--spring.profiles.active=local'
